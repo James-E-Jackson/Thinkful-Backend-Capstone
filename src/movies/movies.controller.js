@@ -13,7 +13,7 @@ async function movieExists(req, res, next){
     return next({ status: 404, message: `Movie ID ${movieId} not found`})
 }
 
-async function list(req, res, next){
+async function list(req, res){
     let data = '';
     if(req.query.is_showing) {
         const data = await service.listShowingMovies(true)
@@ -30,7 +30,7 @@ async function list(req, res, next){
 //     res.json({ data })
 // }
 
-async function read(req, res, next){
+async function read(req, res){
     const data = res.locals.movie;
     res.json({ data });
 }
